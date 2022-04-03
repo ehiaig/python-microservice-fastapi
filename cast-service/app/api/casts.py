@@ -6,9 +6,9 @@ from app.api import db_manager
 
 casts = APIRouter()
 
-@casts.get('/v2')
+@casts.get('/home')
 def welcome():
-    return {"cast here"}
+    return {"msg":"Welcome to the cast API"}
 
 @casts.post('/', response_model=CastOut, status_code=201)
 async def create_cast(payload: CastIn):

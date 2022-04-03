@@ -7,6 +7,10 @@ from app.api.service import is_cast_present
 
 movies = APIRouter()
 
+@movies.get('/home')
+def welcome():
+    return {"msg":"Welcome to the movies API"}
+
 @movies.post('/', response_model=MovieOut, status_code=201)
 async def create_movie(payload: MovieIn):
     for cast_id in payload.casts_id:
